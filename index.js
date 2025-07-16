@@ -21,18 +21,30 @@ app.post('/send-email', async (req, res) => {
   }
 
   const msg = {
-    to: email,
-    from: process.env.SENDER_EMAIL,
-    subject: 'Thanks for reporting content on GenAI!',
-    html: `
-      <h2>Hi there 👋</h2>
-      <p>Thanks for helping us improve GenAI.</p>
-      <p><strong>Prompt:</strong> ${prompt}</p>
-      <p><strong>Image:</strong><br/><img src="${imageUrl}" width="300"/></p>
-      <p>We’re reviewing the content and will take appropriate action.</p>
-      <p>– The GenAI Team</p>
-    `,
-  };
+  to: email,
+  from: process.env.SENDER_EMAIL,
+  subject: 'Thanks for reporting content on GenAI',
+  html: `
+    <h2>Hi there 👋</h2>
+
+    <p>Thank you for reporting content in the GenAI app. We appreciate your help in making the community safe and respectful for everyone.</p>
+
+    <p><strong>Reported Prompt:</strong><br/>${prompt}</p>
+
+    <p><strong>Reported Image:</strong><br/>
+      <img src="${imageUrl}" width="300" style="border:1px solid #ddd; margin-top:10px;"/>
+    </p>
+
+    <p>Our moderation team will review this submission and take appropriate action in accordance with our content guidelines.</p>
+
+    <p>We’re constantly working to improve the experience for all users. Your feedback helps us get better every day.</p>
+
+    <p>Thanks again,<br/><strong>The GenAI Team</strong></p>
+
+    <hr/>
+    <p style="font-size:12px; color:#888;">If you believe this message was sent in error, please contact us at support@yourdomain.com.</p>
+  `,
+};
 
   try {
     await sgMail.send(msg);
