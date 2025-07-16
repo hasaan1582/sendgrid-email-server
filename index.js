@@ -13,6 +13,7 @@ app.use(express.json());
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 app.post('/send-email', async (req, res) => {
+    console.log('Received POST body:', req.body); 
   const { email, prompt, imageUrl } = req.body;
 
   if (!email || !prompt || !imageUrl) {
