@@ -42,7 +42,7 @@ app.post('/send-email', async (req, res) => {
     <p>Thanks again,<br/><strong>The GenAI Team</strong></p>
 
     <hr/>
-    <p style="font-size:12px; color:#888;">If you believe this message was sent in error, please contact us at support@yourdomain.com.</p>
+    <p style="font-size:12px; color:#888;">If you believe this message was sent in error, please contact us at info@thesparksolutionz.com.</p>
   `,
 };
 
